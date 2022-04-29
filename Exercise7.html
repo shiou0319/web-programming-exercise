@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+	table,tr,td,th	{
+	border:gray 0px solid;
+	}
+	
+	td	{
+	width:50px;
+	}
+	
+	#a	{
+	border:gray 1px solid;
+	text-align:center;
+	background-color:#E5E8E8 ;
+	border-radius:5px;
+	}
+	
+	#b {
+	text-align:center;
+	}
+	
+	#c {
+	text-align:center;
+	}
+	</style>
+	<script>
+	
+	var a0 = "(";
+	var a1 = ")";
+	var a2 = "+";
+	var a3 = "-";
+	var a4 = "*";
+	var a5 = "/";
+	var a6 = ".";
+	
+	var input1 = document.getElementById("c"); 
+	function press(number) {    
+		var input1 = document.getElementById("c"); 
+		input1.innerHTML += number;
+	}
+	
+	function result() {
+		var table = document.getElementById('table'); 
+		var result1 = eval(table.rows[2].cells[1].innerHTML);
+		table.rows[1].cells[1].innerHTML = result1;
+	}
+	
+	function clear1() {
+		var input1 = document.getElementById("c"); 
+		var result1 = document.getElementById("b");
+		result1.innerHTML = ' ';
+		input1.innerHTML = ' ';
+	}
+	//
+	
+	
+	function check() {
+		var table = document.getElementById('table');
+		var result2 = eval(table.rows[2].cells[1].innerHTML);
+		var check2 = null;
+		if((result2%3) == 0 && result2 != 0 && result2 > 0){
+			check2 = 1;
+		}
+		else if(result2 > 0){
+			check2 = 2;
+		}
+		else if(result2 < 0){
+			check2 = 3;
+		}
+		else if(result2 == 0){
+			check2 = 4;
+		}
+		else if(result2 == null){
+			check2 = 5;
+		}
+		switch(check2) {
+			case 1:
+				table.rows[1].cells[1].innerHTML = 'Positive(3)';
+				break;
+			case 2:
+				table.rows[1].cells[1].innerHTML = 'Positive';
+				break;
+			case 3:
+				table.rows[1].cells[1].innerHTML = 'Negative';
+				break;
+			case 4:
+				table.rows[1].cells[1].innerHTML = 'Zero';
+				break;
+			case 5:
+				table.rows[1].cells[1].innerHTML = 'No result yet';
+				break;
+		}
+	}
+	
+	</script>
+	</head>
+	<body>
+		<table id="table">
+			<tr>
+				<th>
+				<th colspan="2">My Calculator
+				<th>
+			<tr>
+				<td>Result:	
+				<td colspan="3" id="b">
+			<tr>
+				<td>Input:
+				<td colspan="3" id="c">
+			<tr>
+				<td id="a" onclick="clear1()">Clear
+				<td id="a" onclick="press(a0)">(
+				<td id="a" onclick="press(a1)">)
+				<td>
+			<tr>
+				<td id="a" onclick="press(1)">1
+				<td id="a" onclick="press(2)">2
+				<td id="a" onclick="press(3)">3
+				<td id="a" onclick="press(a2)">+
+			<tr>
+				<td id="a" onclick="press(4)">4
+				<td id="a" onclick="press(5)">5
+				<td id="a" onclick="press(6)">6
+				<td id="a" onclick="press(a3)">-
+			<tr>
+				<td id="a" onclick="press(7)">7
+				<td id="a" onclick="press(8)">8
+				<td id="a" onclick="press(9)">9
+				<td id="a" onclick="press(a4)">×
+			<tr>
+				<td id="a" onclick="press(a6)">.
+				<td id="a" onclick="press(0)">0
+				<td id="a" onclick="result()">=
+				<td id="a" onclick="press(a5)">÷
+			<tr>
+				<td colspan="4" id="a" onclick="check()">Check My Result 
+		</table>
+	</body>
+</html>
