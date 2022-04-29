@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<!--embedded style-->
+<style>
+<!--font-family 字體-->
+<!-- p {font-size:12pt; font-family:arial, sans-serif;}	-->
+<!--https://www.w3schools.com/colors/colors_names.asp-->
+	legend {background: white}
+	#name:focus {background: gray}
+</style>
+</head>
+<h1> My Dream House </h1>
+<body>
+<!--inline style-->
+<!-- <p style = “font-size:20pt; color: deepskyblue; ”> -->
+<fieldset style="background: Cyan">
+<legend>Location</legend>
+<form name="login" action="http://httpbin.org/post" method=post>
+<label>Zipcode:<input type="text" name="zipcode" size="5" maxlength="3"></label><br>
+<label>Address 1:<input type="text" name="Address1" size="50" maxlength="20" 
+placeholder="Address longer than 20 characters, use the address 2"></label><br>
+<label>Address 2:<textarea name="Address2" rows="5" cols="20"></textarea></label><br>
+</fieldset>
+<fieldset style="background: CornflowerBlue">
+<legend>Preference</legend>
+<label>Painting color:<input type="color" name="PaintColor" value="#0000FF"></label><br>
+<label>Time you want to visit Open House:<input type="time" step="60" min="10:00" max="16:00"></label><br>
+</fieldset>
+<fieldset style="background: DarkBlue">
+<legend>Contact me</legend>
+<label>Name:<input id="name" type="text" name="name" minlength="4" pattern="[a-z]"></label><br>
+<label>Phone:<input type="text" name="phone" minlength="7"></label><br>
+</fieldset>
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</form>
+</body>
+</html>
+<!--pattern {3} 一定要3個 {4,}0123不行，4以後可以-->
+<!--pattern [a-zA-Z0-9]{8,}-->
