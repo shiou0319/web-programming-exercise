@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			@keyframes moving {
+				 0%{
+					left:0px;
+					top:0px;
+					}
+				25%{
+					left:650px;
+					top:0px;
+					}
+				50%{
+					left:650px;
+					top:450px;
+					}
+				75%{
+					left:0px;
+					top:450px;
+					}
+				100%{
+					left:0px;
+					top:0px;
+					}
+				}
+			
+			button {
+			width:180 px; 
+			height:60px; 
+			background-color:lightblue; 
+			border:0px;
+			}
+			
+			div {
+			width:600px; 
+			height:400px; 
+			position: relative;
+			left:50px;
+			background-color:gray;
+			}
+			
+			button:hover {
+			color:white; 
+			background-color:blue; 
+			}
+			
+			img	{
+				width:50px;
+				height:50px;
+				top:50px;
+				position: relative;
+				animation: moving 10s linear infinite;
+				}
+				
+			button:hover ~ img { animation: moving 10s linear infinite reverse; }
+
+			
+		</style>
+		<script>
+		function getname() {  
+			var name = prompt ('請輸入名字');  
+			div.innerHTML='Howdy!'+name;
+		}  
+		
+		function ani() {
+			document.getElementById("img").style.animation = "moving 3s linear infinite";
+		}
+		
+		function changeIMG() {
+			var img1 = document.getElementById("img");
+			img1.src="Media/ncku-logo2.jpg";
+		}
+		
+		</script>
+	</head>
+	<body>
+		<button onclick="getname()">Ask My Name</button>
+		<button onclick="ani()">Run Faster!</button>
+		<button onclick="changeIMG()">Another Logo</button>
+		<br>
+		<img src="Media/ncku-logo1.jpg" id="img">
+		<div id  = "div">
+		</div>
+	
+		
+		
+	</body>
+</html>
