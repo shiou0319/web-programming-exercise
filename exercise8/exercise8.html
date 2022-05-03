@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+	td {min-width:68px}
+	</style>
+	<script type="text/javascript" src="Baby_name.js"></script>
+	<script>
+	//string 變 array
+	var baby = Baby_Name_List.split(',');
+	
+	//list
+	function babylist(){
+		var num = 1;
+		for (ele in baby){
+			document.getElementById("Baby_name").innerHTML += "<option>" + num + "." + baby[ele]+ "</option>"; 
+			num = num+1;
+		}
+	}
+	
+	//金字塔
+	function select(){
+		var selected = document.getElementById("Baby_name").value;
+		var count = 0;
+		var i = 1;
+		document.getElementById("table").innerHTML = '<tr id="1">' ;
+		
+		for (ele in baby){
+			document.getElementById(i).innerHTML += '<td id="t'+ ele + '">' + baby[ele] + '</td>';
+			if (ele == count){
+				i = i+1;
+				count = count + i;	
+				document.getElementById("table").innerHTML += '</tr>' + '<tr id="' + i + '">' ;	
+			}
+		}
+		
+	}
+	//選到的會變背景色
+	function color(){
+		var selected = document.getElementById("Baby_name").value;
+		var num = 1;
+		for (ele in baby){
+			document.getElementById("t"+ele).style.backgroundColor = "white";
+			if (selected == (num + "." + baby[ele])){
+				document.getElementById("t"+ele).style.backgroundColor = "yellow";
+			}
+			num = num+1;
+		}
+	}
+	
+	//顯示時間
+	function time(){
+		var now = new Date();
+		document.getElementById('div').innerHTML = now.toLocaleString();
+	}
+	
+	//lucky
+	function lucky(){
+		var x = Math.round(Math.random()*231);
+		for (ele in baby){
+			document.getElementById("t"+ele).style.backgroundColor = "white";
+			document.getElementById("t"+(x-1)).style.backgroundColor = "yellow";
+		}
+	}
+	
+	//disco
+	var timer;
+	function disco(){
+		if (document.getElementById('disco').innerHTML == 'Let’s Disco!' ){
+				document.getElementById('disco').innerHTML = 'Stop the music!';
+				timer= setInterval(lucky,1000);
+			}
+		else {
+			document.getElementById('disco').innerHTML = 'Let’s Disco!';
+			clearInterval(timer);
+		}
+	}
+	
+	</script>
+	</head>
+	<body id="body">
+	<select name="Baby_name" id="Baby_name">
+		<script>babylist();</script>
+	</select>
+	<button onclick="select();color();time();">Select</button>
+	<button id="lucky" onclick="lucky();time();">I feel lucky!</button>
+	<button id="disco" onclick="disco();time();">Let’s Disco!</button>
+	<br>
+	<div id="div"></div>
+	<br>
+	<table id="table">
+	<tr id="1">
+	</table>
+	</body>
+</html>
