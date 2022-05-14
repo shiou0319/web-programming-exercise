@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	<script type="text/javascript" src="Baby_name_Short.js"></script>
+	<script>
+	//string 變 array
+	var baby = Baby_Name_List.split(',');
+
+	//createTable
+	function createTable(){
+		var table = document.getElementById("name_table");
+		var tr = document.createElement("tr");
+		var th = document.createElement("th");
+		table.appendChild(tr);
+		tr.appendChild(th);
+		var Names = document.createTextNode("Names");
+		th.appendChild(Names);
+		for (ele in baby){
+			var tr = document.createElement("tr");//創tr標籤
+			table.appendChild(tr);//tr放進table
+			var name = document.createTextNode(baby[ele]);//name = baby[ele] 的值
+			var td = document.createElement("td");//創td標籤
+			tr.appendChild(td);//td放進tr
+			td.appendChild(name);//name放進td
+		}
+		
+		document.getElementById("NameCount").innerText = table.children.length-1;//顯示有幾個名字
+		table.setAttribute('border', '1');//table border 1
+	}
+	
+	//檢查輸入
+	function check(){
+		var input = document.getElementById("name");
+		var table = document.getElementById("name_table");
+		//將輸入的字串轉為陣列，用半形空格分割
+		var check = new String(input.value);
+		checkArr = check.split(' ');
+		
+		/*如果陣列第三個值不為空(代表有兩個空格)，
+		或陣列第二個值為空(代表只有一個值)，
+		或陣列第一個值為空(代表沒有輸入)，
+		或陣列第二個值為空白(修正輸入"字+空格"時會通過限制)，
+		則顯示Wrong input*/
+		if((checkArr[2] != null)||(checkArr[1] == null)||(checkArr[0] == null)||(checkArr[1] == ""))
+		{
+			alert('Wrong input');
+		}
+		else//通過限制則把first name放進table
+		{
+			
+			var txtNode = document.createTextNode(checkArr[0]);//txtNode = checkArr[0] 的值(first name)
+			var tr = document.createElement("tr");//創tr標籤
+			table.appendChild(tr);//tr放進table
+			
+			var td = document.createElement("td");//創td標籤
+			tr.appendChild(td);//td放進tr
+			
+			td.appendChild(txtNode);//txtNode放進td
+			
+			td.addEventListener('copy', function(){//當td被copy，alert(this內的text is copied!!)
+				alert(this.innerText +' is copied!!');
+			});
+		}	
+		document.getElementById("NameCount").innerText = table.children.length-1;//顯示有幾個名字
+		input.value = "";//清空輸入欄
+		
+	}
+	
+	//copy時會alert(僅用於原本的14個名字)	
+	function copy_alert(){
+		var cells = document.querySelectorAll("td");//取得所有td
+		for (var cell of cells) {
+			cell.addEventListener('copy', function(){//當td被copy，alert(this內的text is copied!!)
+				alert(this.innerText +' is copied!!');
+			});
+		}
+	}
+	</script>
+	</head>
+	<body onload="createTable();copy_alert()">
+	<input id="name" type="text" placeholder="Use a space to sperate">
+	<button onclick="check()">Add a name.</button><br>
+	<span id="NameCount">0</span> names in the table
+	<table id="name_table">
+	</table>
+	</body>
+</html>
