@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+	<link rel = "stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<!--jquery本體要先進來，才能import ui-->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<style>
+		.ui-menu {width:200px;}
+		.ui-progressbar {width:300px;}
+		.ui-slider {width:500px;}
+		#my_tabs{height:500px;}
+	</style>
+</head>
+<body>
+<div id="my_tabs">
+	<ul>
+	<li><a href="#Exercise1" class="exercise" rel="Exercise1.html">Exercise1</a></li>
+	<li><a href="#Exercise2" class="exercise" rel="Exercise2.html">Exercise2</a></li>
+	<li><a href="#Exercise3" class="exercise" rel="Exercise3.html">Exercise3</a></li>
+	
+	<li><a href="#Exercise11">Exercise11</a></li>
+	</ul>
+
+	<div id="Exercise1"><iframe src="Exercise1.html"></iframe></div>
+	<div id="Exercise2"><iframe src="Exercise2.html"></iframe></div>
+	<div id="Exercise3"><iframe src="Exercise3.html"></iframe></div>
+	<div id="Exercise11">
+		<p>
+<p>
+	<!-- dropdown menu-->
+	<ul id="menu">
+	<li>My favorite sites:
+	<ul>
+	<li>Youtube</li>
+	<li>Wikipedia</li>
+	<li>Amazon</li>
+	<li>Facebook
+	<ul>
+		<li>Instagram</li>
+		<li>WhatsApp</li>
+		<li>Oculus VR</li>
+	</ul>
+	</li>
+	</ul>
+</ul>
+</p>
+
+	<!-- Datepicker-->
+	<p>
+	<input type="text" name="date" id="date">
+	</p>
+	
+	<!-- ProgressBar-->
+	<p id="progmsg">你今天已經過了<span id="prognum"></span>%</p>
+	<div id="prog"></div>
+	
+	<!-- slide-->
+	<p>
+	<span id="slideVal">0</span>
+	<div id="slide"></div>
+	</p>
+	
+	<!-- Feeling Lucky-->
+	<button id="but">Feeling Lucky</button>
+	
+	
+	<div id="myDialog"></div>
+	</div>
+	</div>
+<script>
+	//標籤頁
+	$('#my_tabs').tabs({
+		event:'mouseover',
+		heightStyle:'fill',
+		show:'slideDown'
+	});
+
+	
+	//dropdown menu
+	$('#menu').menu();
+	
+	//Datepicker
+	$( "#date" ).datepicker({dateFormat:'yy-mm-d(D)'});
+	
+	//ProgressBar 小數點後兩位
+	$('#prog').progressbar({
+		value:10,
+		change:function() {
+							var Val = $(this).progressbar('value');
+							$('#prognum').text(
+							Val.toFixed(2));
+							}
+	});
+	
+	var timer=setInterval(
+		function(){
+			var now = new Date();
+			var count = (60 * 60 * now.getHours() + 60* (now.getMinutes()+1) + now.getSeconds())/864;
+			//count = count.toFixed(2);
+			//
+			var barValue=$('#prog').progressbar('value');
+			$('#prog').progressbar('value',count);
+			//if(barValue==100)
+				//clearInterval(timer);
+		},50
+	);
+	
+	//slide 只能選奇數
+	$('#slide').slider({
+		max:99,
+		value:0,
+		change:function(){
+						var Val = $('#slide').slider('value');
+						if((Val % 2 )== 0){	
+							$('#slideVal').text(Val + 1);
+						}
+						else{
+							$('#slideVal').text(Val);
+						}
+						}
+	});
+	
+	
+	
+	//Feeling Lucky
+	$( "#myDialog" ).dialog({
+		autoOpen:false,
+		draggable:false,
+		modal:true,
+		resizable:false,
+		width:360
+	});
+	
+	$( "#but" ).click(function(){
+		$( "#myDialog" ).dialog('open');
+		lucky();
+	});
+	
+	function lucky(){
+		var x = Math.round(Math.random()*99);
+		if (x <= 9)
+		{
+			document.getElementById('myDialog').innerHTML = 'Very Lucky!';
+			
+		}
+		else if ((x > 9) && (x < 90))
+		{
+			document.getElementById('myDialog').innerHTML = 'Average';
+		}
+		else 
+		{
+			document.getElementById('myDialog').innerHTML = 'Unlucky...';
+		}
+	}
+</script>	
+</body>
+</html>
