@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>～心理測驗～</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+		<div class="main">
+			<!--上面-->
+			<div class="header">
+				<div>
+				<img class="header_img" src="images/165376805254268.png">
+				</div>	
+				<div class="home" onclick="location.href='index.html';">
+				主頁
+				<hr class="home_hr">
+				</div>	
+				<div class="classification" onclick="location.href='classification.html';">
+				分類
+				<hr class="classification_hr">
+				</div>
+				<div class="introduction" onclick="location.href='introduction.html';">
+				介紹
+				<hr class="introduction_hr">
+				</div>
+				<div class="video" onclick="location.href='video.html';">
+				影片
+				<hr class="video_hr">
+				</div>	
+				<div class="con">
+				聯絡電話：0800-000-000<br>
+				信箱：NoOne@Will.answer.com
+				</div>
+			</div>	
+			<!--中間-->
+			<div class="psychological_middle">
+				<!--主要內容-->
+				<div class="psychological_content">
+					<!--開始測驗畫面-->
+					<div id="start_page">
+						<img id="start_button" src="images/start-button.png" alt="Start" onclick="change_to_test_page()">
+					</div>
+					<!--測驗選項-->
+					<div id="test_page">
+						<table id="options">
+							<tr>
+								<th id="question" colspan="2">下列四種雨傘，你比較常用哪種？
+							<tr>
+								<td id="test_a" onclick="change_to_result_a();">透明的塑膠傘<br> <img class="a_img" id="a_img" src="images/a.jpg" >
+								<td id="test_b" onclick="change_to_result_b();">樸素的長傘<br> <img class="b_img" id="b_img" src="images/b.jpg" >
+							<tr>
+								<td id="test_c" onclick="change_to_result_c();">有圖案的長傘<br> <img class="c_img" id="c_img" src="images/c.jpg" >
+								<td id="test_d" onclick="change_to_result_d();">折疊傘<br> <img class="d_img" id="d_img" src="images/d.jpg" >
+						</table>
+					</div>
+					
+					<!--測驗結果-->
+					<div id="result_page">
+					<div id="result_a">
+						<p><span id="result_title">選擇A透明的塑膠傘的你：被害妄想度僅有5％。</span><br><br>
+						你是個不太在乎他人看法，同時也不容易懷疑他人的性格，自然內心不容易出現被害妄想。
+						而透明的塑膠傘雖然便宜，但要遮雨確實也已經夠用了，更反映出你不追求虛榮，能用樂觀的態度面對事物。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</P>
+					</div>
+					<div id="result_b">
+						<p><span id="result_title">選擇B樸素的長傘的你：被害妄想度有30％。</span><br><br>
+						你是個碰到任何事情，都能夠冷靜下來分析狀況，採取適當行動的人。
+						因此你也不會隨時把抱怨掛在口中，也不會嫉妒他人的好，而是會專注於思考自己該怎麼做，才能夠達到心目中理想的成果。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</P>
+					</div>
+					<div id="result_c">
+						<p><span id="result_title">選擇C有圖案的長傘的你：被害妄想度來到75％。</span><br><br>
+						選擇有圖案的雨傘，正反映出你本身是個沒有自信的人。
+						在虛榮心的作祟下，企圖以華麗的外表來掩飾自我，為的也是避免遭致他人批評。然而不是每個人都像你想的那麼糟，需要自己放開心胸，才能更瞭解其他人是怎麼想的。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</p>
+					</div>
+					<div id="result_d" id="result_title">
+						<p><span>選擇D折疊傘的你：被害妄想度高達90％。</span><br><br>
+						包包內放著折疊傘，代表無論何時會下雨，你都不需要擔心避雨的問題。
+						然而這也反映出你的內心，一直都處在高度警戒的狀態，對任何事物都不抱信任，所以才會時時刻刻武裝自己，並對周圍的人保持戒心，深怕意外隨時會發生。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</p>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!--下面-->
+			<div class="footer">
+				Copyfailed © 2022 心理測驗網 沒有版權
+			</div>
+</div>
+<script>
+		$('.home').mouseenter(function(){$('.home_hr').css({border: '1px solid gray'});$('.home_hr').animate({width:"155px"});});
+		$('.home').mouseleave(function(){$('.home_hr').animate({width:"0px"});setTimeout(function(){$('.home_hr').css({border: '0px solid gray'});},500);});
+		$('.classification').mouseenter(function(){$('.classification_hr').css({border: '1px solid gray'});$('.classification_hr').animate({width:"155px"});});
+		$('.classification').mouseleave(function(){$('.classification_hr').animate({width:"0px"});setTimeout(function(){$('.classification_hr').css({border: '0px solid gray'});},500);});
+		$('.introduction').mouseenter(function(){$('.introduction_hr').css({border: '1px solid gray'});$('.introduction_hr').animate({width:"155px"});});
+		$('.introduction').mouseleave(function(){$('.introduction_hr').animate({width:"0px"});setTimeout(function(){$('.introduction_hr').css({border: '0px solid gray'});},500);});
+		$('.video').mouseenter(function(){$('.video_hr').css({border: '1px solid gray'});$('.video_hr').animate({width:"155px"});});
+		$('.video').mouseleave(function(){$('.video_hr').animate({width:"0px"});setTimeout(function(){$('.video_hr').css({border: '0px solid gray'});},500);});
+		
+		
+	
+	function change_to_test_page()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("start_page");
+		box1.style.zIndex="10";
+		box2.style.zIndex="6";
+		box2.setAttribute("style","background-image: url('');");
+	}
+	function change_to_result_a()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_a");
+		box1.style.zIndex="2";
+		box2.style.zIndex="10";
+	}
+	function change_to_result_b()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_b");
+		box1.style.zIndex="3";
+		box2.style.zIndex="10";
+	}
+	function change_to_result_c()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_c");
+		box1.style.zIndex="4";
+		box2.style.zIndex="10";
+	}
+	function change_to_result_d()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_d");
+		box1.style.zIndex="5";
+		box2.style.zIndex="10";
+	}
+	
+	function back_to_home()
+	{
+		window.location = 'index.html';
+		
+	}
+	function go_to_classification()
+	{
+		window.location = 'classification.html';
+		
+	}
+	
+
+
+</script>
+</body>

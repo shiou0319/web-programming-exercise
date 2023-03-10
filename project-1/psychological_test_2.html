@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	
+	function change_to_test_page()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("start_page");
+		box1.style.zIndex="10";
+		box2.style.zIndex="6";
+		box2.setAttribute("style","background-image: url('');");
+	}
+	function change_to_result_a()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_a");
+		box1.style.zIndex="2";
+		box2.style.zIndex="10";
+	}
+	function change_to_result_b()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_b");
+		box1.style.zIndex="3";
+		box2.style.zIndex="10";
+	}
+	function change_to_result_c()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_c");
+		box1.style.zIndex="4";
+		box2.style.zIndex="10";
+	}
+	function change_to_result_d()
+	{
+		var box1=document.getElementById("test_page");
+		var box2=document.getElementById("result_d");
+		box1.style.zIndex="5";
+		box2.style.zIndex="10";
+	}
+	
+	function back_to_home()
+	{
+		window.location = 'index.html';
+		
+	}
+	function go_to_classification()
+	{
+		window.location = 'classification.html';
+		
+	}
+	
+
+</script>
+	<title>～心理測驗～</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+			<!--上面-->
+			<div class="header">
+				<div>
+				<img class="header_img" src="images/165376805254268.png">
+				</div>	
+				<div class="home" onclick="location.href='index.html';">
+				主頁
+				<hr class="home_hr">
+				</div>	
+				<div class="classification" onclick="location.href='classification.html';">
+				分類
+				<hr class="classification_hr">
+				</div>
+				<div class="introduction" onclick="location.href='introduction.html';">
+				介紹
+				<hr class="introduction_hr">
+				</div>
+				<div class="video" onclick="location.href='video.html';">
+				影片
+				<hr class="video_hr">
+				</div>	
+				<div class="con">
+				聯絡電話：0800-000-000<br>
+				信箱：NoOne@Will.answer.com
+				</div>
+			</div>		
+			<!--中間-->
+			<div class="psychological_middle">
+				<!--主要內容-->
+				<div class="psychological_middle">
+				<!--主要內容-->
+				<div class="psychological_content">
+					<!--開始測驗畫面-->
+					<div id="start_page">
+						<img id="start_button" src="images/start-button.png" alt="Start" onclick="change_to_test_page()">
+					</div>
+					<!--測驗選項-->
+					<div id="test_page">
+						<table id="options">
+							<tr>
+								<th id="question" colspan="2">這裡面你最討厭哪個顏色？請憑直覺回答最接近的。
+							<tr>
+								<td id="test_a" onclick="change_to_result_a();">灰色<br> <img class="a_img" id="a_img" src="images/2a.jpg" >
+								<td id="test_b" onclick="change_to_result_b();">紫色<br> <img class="b_img" id="b_img" src="images/2b.jpg" >
+							<tr>
+								<td id="test_c" onclick="change_to_result_c();">黃色<br> <img class="c_img" id="c_img" src="images/2c.jpg" >
+								<td id="test_d" onclick="change_to_result_d();">粉色<br> <img class="d_img" id="d_img" src="images/2d.jpg" >
+						</table>
+					</div>
+					
+					<!--測驗結果-->
+					<div id="result_page">
+					<div id="result_a">
+						<p><span id="result_title">A：灰色…你覺得「優柔寡斷的人」最討厭</span><br><br>
+						灰色是白色和黑色混合的顏色，是有點曖昧不明的顏色，你討厭這個顏色，說明你不擅長面對的類型是優柔寡斷的人，
+						這種人總是不會很明確的表達自己的想法，但是相對的，這樣類型的人很適合當作輔佐者，由你來負責指揮行動，
+						所以建議可以邀請「一起吃飯」或是「看電影」這種明確的邀約，讓你跟對方變得更加親近。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</P>
+					</div>
+					<div id="result_b">
+						<p><span id="result_title">B：紫色…你覺得「顯眼的人」最討厭</span><br><br>
+						紫色是熱情的紅色和冷靜的藍色混合的顏色，你不擅長面對有決斷力或行動力，這種經常被人依靠的顯眼的人，
+						要和這種類型順利交往，最重要的是你必須依靠對方，但是這正是你不擅長的，你喜歡獨自行動，
+						就算有困難也覺得可以靠自己度過，所以這正是你面對這種人感到不擅長的原因。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</P>
+					</div>
+					<div id="result_c">
+						<p><span id="result_title">C：黃色…你覺得「自私的人」最討厭</span><br><br>
+						黃色是表示奔放的顏色，你不擅長的是採取自私行動、引起騷動的人，就是有那種不管周圍的事、
+						對人際關係沒有興趣、缺乏協調性的人吧？如果相處不好的話，可能會被捲進亂七八糟的事情中，
+						所以為了和這種類型的人順利相處，必須好好下定決心，你只需要考慮自己的職責或義務，儘量不要去過多的干涉對方。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</p>
+					</div>
+					<div id="result_d">
+						<p><span id="result_title">D：粉色…你覺得「多管閒事的人」最討厭</span><br><br>
+						粉色是象徵溫柔的顏色，你不擅長的面對感情很深、想幫助別人的心情很強烈的人，對你來說像是多餘的多管閒事吧？
+						要想和這種類型順利相處下去的話，不用客氣、儘可能拜託對方幫忙就對了，不要害怕被認為厚臉皮，拜託對方幫你做各種各樣的事情，
+						對方才會滿足於被人需要，這正是與這種類型的人相處的不二法門。
+						<br><br><span id="page_key" onclick="back_to_home();"><u>回主頁</u></span>
+						&nbsp;&nbsp;<span id="page_key" onclick="go_to_classification();"><u>其他測驗</u></span>
+						</p>
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<!--下面-->
+			<div class="footer">
+				Copyfailed © 2022 心理測驗網 沒有版權
+			</div>
+</div>
+<script>
+		$('.home').mouseenter(function(){$('.home_hr').css({border: '1px solid gray'});$('.home_hr').animate({width:"155px"});});
+		$('.home').mouseleave(function(){$('.home_hr').animate({width:"0px"});setTimeout(function(){$('.home_hr').css({border: '0px solid gray'});},500);});
+		$('.classification').mouseenter(function(){$('.classification_hr').css({border: '1px solid gray'});$('.classification_hr').animate({width:"155px"});});
+		$('.classification').mouseleave(function(){$('.classification_hr').animate({width:"0px"});setTimeout(function(){$('.classification_hr').css({border: '0px solid gray'});},500);});
+		$('.introduction').mouseenter(function(){$('.introduction_hr').css({border: '1px solid gray'});$('.introduction_hr').animate({width:"155px"});});
+		$('.introduction').mouseleave(function(){$('.introduction_hr').animate({width:"0px"});setTimeout(function(){$('.introduction_hr').css({border: '0px solid gray'});},500);});
+		$('.video').mouseenter(function(){$('.video_hr').css({border: '1px solid gray'});$('.video_hr').animate({width:"155px"});});
+		$('.video').mouseleave(function(){$('.video_hr').animate({width:"0px"});setTimeout(function(){$('.video_hr').css({border: '0px solid gray'});},500);});
+</script>
+</body>

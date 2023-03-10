@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+	
+	<script>
+		
+		function change_left(){
+			var img_left = document.getElementById("sidebar_left_img");
+			var img_middle = document.getElementById("content_img");
+			var img_right = document.getElementById("sidebar_right_img");
+			var src1 = img_left.src;
+			var src2 = img_middle.src;
+			var src3 = img_right.src;
+			img_left.src = src3;
+			img_middle.src = src1;
+			img_right.src = src2;
+		}
+		
+		function change_right(){
+			var img_left = document.getElementById("sidebar_left_img");
+			var img_middle = document.getElementById("content_img");
+			var img_right = document.getElementById("sidebar_right_img");
+			var src1 = img_left.src;
+			var src2 = img_middle.src;
+			var src3 = img_right.src;
+			img_left.src = src2;
+			img_middle.src = src3;
+			img_right.src = src1;
+		}
+		
+		
+	</script>
+	<head>
+		<title>～心理測驗網～</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+	<!--排版：https://www.daconote.com/css-gride-fr/-->
+		<div class="main">
+			<!--上面-->
+			<div class="header">
+				<div>
+				<img class="header_img" src="images/165376805254268.png">
+				</div>	
+				<div class="home" onclick="location.href='index.html';">
+				主頁
+				<hr class="home_hr">
+				</div>	
+				<div class="classification" onclick="location.href='classification.html';">
+				分類
+				<hr class="classification_hr">
+				</div>
+				<div class="introduction" onclick="location.href='introduction.html';">
+				介紹
+				<hr class="introduction_hr">
+				</div>
+				<div class="video" onclick="location.href='video.html';">
+				影片
+				<hr class="video_hr">
+				</div>	
+				<div class="con">
+				聯絡電話：0800-000-000<br>
+				信箱：NoOne@Will.answer.com
+				</div>
+			</div>			
+			<!--中間-->
+			<div class="index_middle_wrap">
+			<div class="top_text_1">
+					<h3 id="top_text_1">國內外心理學家沒有推薦</h3>
+			</div>
+			<div class="top_text_2">
+					<h1 id="top_text_2">心理測驗網</h1>
+			</div>
+			<div class="index_middle">
+				<!--左中-->
+				<div class="index_sidebar_left">
+					<div class="sidebar_left_picture">
+						<img class="sidebar_left_img" id="sidebar_left_img" src="images/4dbb654b-51a9-4e48-bce1-a36c6343d1e9.jpg">
+					</div>
+				</div>
+				<!--箭頭-->
+				<div class="index_arrow" onclick="change_left()">
+					<span class="material-symbols-outlined">
+					arrow_left
+					</span>
+				</div>
+				<!--主要內容-->
+				<div class="index_content">
+					<div class="content_picture">
+						<img class="content_img" id="content_img" src="images/difficult-person-test.jpg" onclick="location.href='psychological_test.html';">
+					</div>
+				</div>
+				<!--箭頭-->
+				<div class="index_arrow" onclick="change_right()">
+					<i class="material-symbols-outlined">
+					arrow_right
+					</i>
+				</div>
+				<!--右中-->
+				<div class="sidebar_right">
+					<div class="sidebar_right_picture">
+						<img class="sidebar_right_img" id="sidebar_right_img" src="images/question.jpg">
+					</div>
+				</div>
+			</div>
+			<div class="top_text_3">
+					<h1 id="top_text_2">⇧立即點擊開始測驗⇧</h1>
+			</div>
+			</div>
+			<!--下面-->
+			<div class="footer">
+				Copyfailed © 2022 心理測驗網 沒有版權
+			</div>
+		</div>
+		<script>
+		$('.home').mouseenter(function(){$('.home_hr').css({border: '1px solid gray'});$('.home_hr').animate({width:"155px"});});
+		$('.home').mouseleave(function(){$('.home_hr').animate({width:"0px"});setTimeout(function(){$('.home_hr').css({border: '0px solid gray'});},500);});
+		$('.classification').mouseenter(function(){$('.classification_hr').css({border: '1px solid gray'});$('.classification_hr').animate({width:"155px"});});
+		$('.classification').mouseleave(function(){$('.classification_hr').animate({width:"0px"});setTimeout(function(){$('.classification_hr').css({border: '0px solid gray'});},500);});
+		$('.introduction').mouseenter(function(){$('.introduction_hr').css({border: '1px solid gray'});$('.introduction_hr').animate({width:"155px"});});
+		$('.introduction').mouseleave(function(){$('.introduction_hr').animate({width:"0px"});setTimeout(function(){$('.introduction_hr').css({border: '0px solid gray'});},500);});
+		$('.video').mouseenter(function(){$('.video_hr').css({border: '1px solid gray'});$('.video_hr').animate({width:"155px"});});
+		$('.video').mouseleave(function(){$('.video_hr').animate({width:"0px"});setTimeout(function(){$('.video_hr').css({border: '0px solid gray'});},500);});
+		</script>
+	</body>
+</html>

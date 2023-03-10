@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<head>
+		<title>～分類～</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel = "stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<!--jquery本體要先進來，才能import ui-->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	</head>
+	<body>
+	<!--排版：https://www.daconote.com/css-gride-fr/-->
+		<div class="main">
+			<!--上面-->
+			<div class="header">
+				<div>
+				<img class="header_img" src="images/165376805254268.png">
+				</div>	
+				<div class="home" onclick="location.href='index.html';">
+				主頁
+				<hr class="home_hr">
+				</div>	
+				<div class="classification" onclick="location.href='classification.html';">
+				分類
+				<hr class="classification_hr">
+				</div>
+				<div class="introduction" onclick="location.href='introduction.html';">
+				介紹
+				<hr class="introduction_hr">
+				</div>
+				<div class="video" onclick="location.href='video.html';">
+				影片
+				<hr class="video_hr">
+				</div>	
+				<div class="con">
+				聯絡電話：0800-000-000<br>
+				信箱：NoOne@Will.answer.com
+				</div>
+			</div>				
+			<!--中間-->
+			
+			<div class="classification_middle">
+				<div class="classification_top">	
+					<div class="classification_search_box">
+						<input type="text" name="search" class="classification_search" placeholder="搜尋心理測驗"></input>
+						<input type="submit" class="classification_search_button" value="搜尋"></input> 
+					</div>
+				</div>
+				<!--主要內容 https://m.click108.com.tw/psychictest/-->
+				<div class="classification_content">					
+					<div class="classification_text" >					
+						<h1 class="h1_1"></h1>
+						<h3 class="h3_1"></h3>
+					</div>
+					<div class="classification_classification">
+						<div id="love" onclick ="change('love')">					
+							愛情
+						</div>
+						<div id="character" onclick ="change('character')">					
+							個性
+						</div>
+						<div id="money" onclick ="change('money')">					
+							錢財
+						</div>
+						<div id="future" onclick ="change('future')">					
+							未來
+						</div>
+					</div>
+					<div class="classification_classification_img_box">
+						<div class="box">						
+							<img class="classification_classification_img" id="classification_classification_img_1" src="images/love_1.jpg" onclick="location.href='psychological_test.html';">
+						</div>
+						<div class="box">					
+							<img class="classification_classification_img" id="classification_classification_img_2" src="images/love_2.jpg" onclick="location.href='psychological_test_2.html';">
+						</div>
+						<div class="box">					
+							<img class="classification_classification_img" id="classification_classification_img_3" src="images/love_3.jpg" onclick="location.href='psychological_test_2.html';">
+						</div>
+						<div class="box">					
+							<img class="classification_classification_img" id="classification_classification_img_4" src="images/love_4.jpg" onclick="location.href='psychological_test.html';">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="classification_content2">
+					<div class="classification_text" >					
+						<h1>最多人在玩的心理測驗！</h1>
+						<h3>心理測驗網不專業推薦</h3>
+					</div>
+					<div class="classification_classification_img_box">
+						<div class="box">						
+							<img class="classification_classification_img" id="classification_classification_img_1" src="images/love_1.jpg" onclick="location.href='psychological_test.html';">
+						</div>
+						<div class="box">					
+							<img class="classification_classification_img" id="classification_classification_img_2" src="images/character_1.jpg" onclick="location.href='psychological_test.html';">
+						</div>
+						<div class="box">					
+							<img class="classification_classification_img" id="classification_classification_img_3" src="images/money_1.jpg" onclick="location.href='psychological_test.html';">
+						</div>
+						<div class="box">					
+							<img class="classification_classification_img" id="classification_classification_img_4" src="images/future_1.jpg" onclick="location.href='psychological_test.html';">
+						</div>
+					</div>
+				</div>
+
+			<!--下面-->
+			<div class="footer">
+				Copyfailed © 2022 心理測驗網 沒有版權
+			</div>
+		</div>
+		
+		<div id="myDialog" title="查無結果">
+		<p>對不起，沒有這類型的測驗QQ</p>
+		</div>
+	</body>
+	<script>
+	document.getElementById('love').style.backgroundColor = "red";
+	document.getElementById('love').style.color = "white";
+	
+	//選取分類會讓底變紅，字變白
+	function change(ya){
+		//重製
+		document.getElementById('love').style.backgroundColor = "white";
+		document.getElementById('character').style.backgroundColor = "white";
+		document.getElementById('money').style.backgroundColor = "white";
+		document.getElementById('future').style.backgroundColor = "white";
+		document.getElementById('love').style.color = "black";
+		document.getElementById('character').style.color = "black";
+		document.getElementById('money').style.color = "black";
+		document.getElementById('future').style.color = "black";
+		//改
+		document.getElementById(ya).style.backgroundColor = "red";
+		document.getElementById(ya).style.color = "white";
+	}
+	
+	$("#love").click(function(){
+		$("#classification_classification_img_1").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/love_1.jpg");
+					$(this ).animate({height:"100%",width:"100%"});
+			});	
+		$("#classification_classification_img_2").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/love_2.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_3").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/love_3.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_4").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/love_4.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+	});
+	
+	$("#character").click(function(){
+		$("#classification_classification_img_1").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/character_1.jpg");
+					$(this ).animate({height:"100%",width:"100%"});
+			});	
+		$("#classification_classification_img_2").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/character_2.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_3").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/character_3.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_4").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/character_4.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+	});
+	
+	$("#money").click(function(){
+		$("#classification_classification_img_1").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/money_1.jpg");
+					$(this ).animate({height:"100%",width:"100%"});
+			});	
+		$("#classification_classification_img_2").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/money_2.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_3").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/money_3.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_4").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/money_4.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+	});
+	
+	$("#future").click(function(){
+		$("#classification_classification_img_1").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/future_1.jpg");
+					$(this ).animate({height:"100%",width:"100%"});
+			});	
+		$("#classification_classification_img_2").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/future_2.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_3").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/future_3.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+		$("#classification_classification_img_4").animate({height:"10%",width:"10%"},300,function(){
+					$(this).attr("src","images/future_4.jpg");
+					$(this).css({'height':'0px','width':'0px'});
+					$(this ).animate({height:"100%",width:"100%"});
+			});
+	});
+
+	
+	$("input[type=text]").change(function(){
+		var searchText = $(this).val();
+		$("input[type=text]").val("");
+		if(searchText != ""){
+			if(searchText == "愛情"){
+				$('.h1_1').text('Result for' +searchText);
+				$('.h3_1').text('4個結果');
+				$('.classification_classification').remove();
+				$('.classification_content2').remove();
+				$("#classification_classification_img_1").attr("src","images/love_1.jpg");
+				$("#classification_classification_img_2").attr("src","images/love_2.jpg");
+				$("#classification_classification_img_3").attr("src","images/love_3.jpg");
+				$("#classification_classification_img_4").attr("src","images/love_4.jpg");
+			}
+			else if(searchText == "個性"){
+				$('.h1_1').text('Result for' +searchText);
+				$('.h3_1').text('4個結果');
+				$('.classification_classification').remove();
+				$('.classification_content2').remove();
+				$("#classification_classification_img_1").attr("src","images/character_1.jpg");
+				$("#classification_classification_img_2").attr("src","images/character_2.jpg");
+				$("#classification_classification_img_3").attr("src","images/character_3.jpg");
+				$("#classification_classification_img_4").attr("src","images/character_4.jpg");
+			}
+			else if(searchText == "錢財"){
+				$('.h1_1').text('Result for' +searchText);
+				$('.h3_1').text('4個結果');
+				$('.classification_classification').remove();
+				$('.classification_content2').remove();
+				$("#classification_classification_img_1").attr("src","images/money_1.jpg");
+				$("#classification_classification_img_2").attr("src","images/money_2.jpg");
+				$("#classification_classification_img_3").attr("src","images/money_3.jpg");
+				$("#classification_classification_img_4").attr("src","images/money_4.jpg");
+			}
+			else if(searchText == "未來"){
+				$('.h1_1').text('Result for' +searchText);
+				$('.h3_1').text('4個結果');
+				$('.classification_classification').remove();
+				$('.classification_content2').remove();
+				$("#classification_classification_img_1").attr("src","images/future_1.jpg");
+				$("#classification_classification_img_2").attr("src","images/future_2.jpg");
+				$("#classification_classification_img_3").attr("src","images/future_3.jpg");
+				$("#classification_classification_img_4").attr("src","images/future_4.jpg");
+			}
+			else{
+				$( "#myDialog" ).dialog('open');
+			}
+		}
+	});
+	
+	$( "#myDialog" ).dialog({
+		autoOpen:false,
+		draggable:false,
+		modal:true,
+		resizable:false,
+		width:360
+	});
+	
+	 $("input[type=submit]").click(function() {
+            $("searchText").change();
+	});
+	
+		$('.home').mouseenter(function(){$('.home_hr').css({border: '1px solid gray'});$('.home_hr').animate({width:"155px"});});
+		$('.home').mouseleave(function(){$('.home_hr').animate({width:"0px"});setTimeout(function(){$('.home_hr').css({border: '0px solid gray'});},500);});
+		$('.classification').mouseenter(function(){$('.classification_hr').css({border: '1px solid gray'});$('.classification_hr').animate({width:"155px"});});
+		$('.classification').mouseleave(function(){$('.classification_hr').animate({width:"0px"});setTimeout(function(){$('.classification_hr').css({border: '0px solid gray'});},500);});
+		$('.introduction').mouseenter(function(){$('.introduction_hr').css({border: '1px solid gray'});$('.introduction_hr').animate({width:"155px"});});
+		$('.introduction').mouseleave(function(){$('.introduction_hr').animate({width:"0px"});setTimeout(function(){$('.introduction_hr').css({border: '0px solid gray'});},500);});
+		$('.video').mouseenter(function(){$('.video_hr').css({border: '1px solid gray'});$('.video_hr').animate({width:"155px"});});
+		$('.video').mouseleave(function(){$('.video_hr').animate({width:"0px"});setTimeout(function(){$('.video_hr').css({border: '0px solid gray'});},500);});
+	</script>
+</html>

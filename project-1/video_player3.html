@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- H34084082-->
+<html>
+<head>
+<title>～創意無限～</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/mint-choc/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+</head>
+<body>
+<div class="main">
+			<!--上面-->
+			<div class="header">
+				<div>
+				<img class="header_img" src="images/165376805254268.png">
+				</div>	
+				<div class="home" onclick="location.href='index.html';">
+				主頁
+				<hr class="home_hr">
+				</div>	
+				<div class="classification" onclick="location.href='classification.html';">
+				分類
+				<hr class="classification_hr">
+				</div>
+				<div class="introduction" onclick="location.href='introduction.html';">
+				介紹
+				<hr class="introduction_hr">
+				</div>
+				<div class="video" onclick="location.href='video.html';">
+				影片
+				<hr class="video_hr">
+				</div>	
+				<div class="con">
+				聯絡電話：0800-000-000<br>
+				信箱：NoOne@Will.answer.com
+				</div>
+			</div>		
+
+			<div id="video_tabs">
+				<ul id="video_list">
+					<li><a href="#video1"><span id="tabs_title">Film1</span></a></li>
+					<li><a href="#video2"><span id="tabs_title">Film2</span></a></li>
+					<li><a href="#video3" ><span id="tabs_title">Film3</span></a></li>
+					<li><a href="#video4" ><span id="tabs_title">Film4</span></a></li>
+				</ul>
+			<div id="video1"><iframe id="video_player"src="https://www.youtube.com/embed/IAmFRCd_ZxY" title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+			<div id="video2"><iframe id="video_player" src="https://www.youtube.com/embed/iiLSt0ImZZE" title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+			<div id="video3"><iframe id="video_player" src="https://www.youtube.com/embed/nTZq7BHggvU" title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+			<div id="video4"><iframe id="video_player" src="https://www.youtube.com/embed/ee2y7SdxxHs" title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+			</div>
+</div>
+		<!--下面-->
+			<div class="footer">
+				Copyfailed © 2022 心理測驗網 沒有版權
+			</div>
+
+<script>
+		$('#video_tabs').tabs({evert:'click'});
+		$('.home').mouseenter(function(){$('.home_hr').css({border: '1px solid gray'});$('.home_hr').animate({width:"155px"});});
+		$('.home').mouseleave(function(){$('.home_hr').animate({width:"0px"});setTimeout(function(){$('.home_hr').css({border: '0px solid gray'});},500);});
+		$('.classification').mouseenter(function(){$('.classification_hr').css({border: '1px solid gray'});$('.classification_hr').animate({width:"155px"});});
+		$('.classification').mouseleave(function(){$('.classification_hr').animate({width:"0px"});setTimeout(function(){$('.classification_hr').css({border: '0px solid gray'});},500);});
+		$('.introduction').mouseenter(function(){$('.introduction_hr').css({border: '1px solid gray'});$('.introduction_hr').animate({width:"155px"});});
+		$('.introduction').mouseleave(function(){$('.introduction_hr').animate({width:"0px"});setTimeout(function(){$('.introduction_hr').css({border: '0px solid gray'});},500);});
+		$('.video').mouseenter(function(){$('.video_hr').css({border: '1px solid gray'});$('.video_hr').animate({width:"155px"});});
+		$('.video').mouseleave(function(){$('.video_hr').animate({width:"0px"});setTimeout(function(){$('.video_hr').css({border: '0px solid gray'});},500);});
+
+</script>
+</body>
+</html>
